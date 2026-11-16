@@ -1,0 +1,48 @@
+-rw-rw-r-- 1 ez ez  42K Oct  3  2023 [00mDay 01 Lab - Packet Tracer Introduction.pkt[0m
+-rw-rw-r-- 1 ez ez  85K Oct  3  2023 [00mDay 02 Lab - Connecting Devices.pkt[0m
+-rw-rw-r-- 1 ez ez  80K Oct  3  2023 [00mDay 03 Lab - OSI Model.pkt[0m
+-rw-rw-r-- 1 ez ez  46K Oct  3  2023 [00mDay 04 Lab - Basic Device Security.pkt[0m
+-rw-rw-r-- 1 ez ez  48K Oct  3  2023 [00mDay 06 Lab - Ethernet LAN Switching.pkt[0m
+-rw-rw-r-- 1 ez ez  48K Oct  3  2023 [00mDay 08 Lab - IPv4 Addresses.pkt[0m
+-rw-rw-r-- 1 ez ez  51K Sep 15 10:30 [00mDay 09 Lab - Interface Configuration.pkt[0m
+-rw-rw-r-- 1 ez ez  47K Oct  3  2023 [00mDay 11 Lab - Configuring Static Routes.pkt[0m
+-rw-rw-r-- 1 ez ez  48K Oct  3  2023 [00mDay 11 Lab - Troubleshooting Static Routes.pkt[0m
+-rw-rw-r-- 1 ez ez  55K Oct  3  2023 [00mDay 12 Lab - Life of a Packet.pkt[0m
+-rw-rw-r-- 1 ez ez  50K Oct  3  2023 [00mDay 15 Lab - VLSM.pkt[0m
+-rw-rw-r-- 1 ez ez  48K Oct  3  2023 [00mDay 16 Lab - VLANs (Part 1).pkt[0m
+-rw-rw-r-- 1 ez ez  55K Oct  3  2023 [00mDay 17 Lab - VLANs (Part 2).pkt[0m
+-rw-rw-r-- 1 ez ez 130K Oct  3  2023 [00mDay 18 Lab - Multilayer Switching.pkt[0m
+-rw-rw-r-- 1 ez ez  54K Oct  3  2023 [00mDay 19 Lab - DTP & VTP.pkt[0m
+-rw-rw-r-- 1 ez ez  52K Feb 12  2024 [00mDay 20 Lab - Analyzing STP.pkt[0m
+-rw-rw-r-- 1 ez ez  52K Oct  3  2023 [00mDay 21 Lab - Configuring Spanning Tree.pkt[0m
+-rw-rw-r-- 1 ez ez  54K Oct  3  2023 [00mDay 22 Lab - Rapid STP.pkt[0m
+-rw-rw-r-- 1 ez ez  89K Oct  3  2023 [00mDay 23 Lab - EtherChannel.pkt[0m
+-rw-rw-r-- 1 ez ez  88K Oct  3  2023 [00mDay 24 Lab - Floating Static Routes.pkt[0m
+-rw-rw-r-- 1 ez ez  48K Oct  3  2023 [00mDay 25 Lab - EIGRP Configuration.pkt[0m
+-rw-rw-r-- 1 ez ez  55K Dec 22  2025 [00mDay 26 Lab - OSPF (Part 1).pkt[0m
+-rw-rw-r-- 1 ez ez  55K Dec 22  2025 [00mDay 27 Lab - OSPF (Part 2).pkt[0m
+-rw-rw-r-- 1 ez ez  58K Oct  3  2023 [00mDay 28 Lab - OSPF (Part 3).pkt[0m
+-rw-rw-r-- 1 ez ez 176K Oct  3  2023 [00mDay 29 Lab - HSRP Configuration.pkt[0m
+-rw-rw-r-- 1 ez ez  48K Oct  3  2023 [00mDay 31 Lab - IPv6 Configuration (Part 1).pkt[0m
+-rw-rw-r-- 1 ez ez  46K Oct  3  2023 [00mDay 32 Lab - IPv6 Configuration (Part 2).pkt[0m
+-rw-rw-r-- 1 ez ez  50K Oct  3  2023 [00mDay 33 Lab - IPv6 Static Routes.pkt[0m
+-rw-rw-r-- 1 ez ez  94K Oct  3  2023 [00mDay 34 Lab - Standard ACLs.pkt[0m
+-rw-rw-r-- 1 ez ez  94K Oct  3  2023 [00mDay 35 Lab - Extended ACLs.pkt[0m
+-rw-rw-r-- 1 ez ez  54K Oct  3  2023 [00mDay 36 Lab - CDP & LLDP.pkt[0m
+-rw-rw-r-- 1 ez ez  67K Oct  3  2023 [00mDay 37 Lab - NTP.pkt[0m
+-rw-rw-r-- 1 ez ez  92K Oct  3  2023 [00mDay 38 Lab - DNS.pkt[0m
+-rw-rw-r-- 1 ez ez  52K Oct  3  2023 [00mDay 39 Lab - DHCP.pkt[0m
+-rw-rw-r-- 1 ez ez  47K Oct  3  2023 [00mDay 40 Lab - SNMP.pkt[0m
+-rw-rw-r-- 1 ez ez  83K Oct  3  2023 [00mDay 41 Lab - Syslog.pkt[0m
+-rw-rw-r-- 1 ez ez  51K Oct  3  2023 [00mDay 42 Lab - SSH.pkt[0m
+-rw-rw-r-- 1 ez ez  67K Oct  3  2023 [00mDay 43 Lab - FTP & TFTP.pkt[0m
+-rw-rw-r-- 1 ez ez  71K Oct  3  2023 [00mDay 44 Lab - Static NAT.pkt[0m
+-rw-rw-r-- 1 ez ez  72K Oct  3  2023 [00mDay 45 Lab - Dynamic NAT.pkt[0m
+-rw-rw-r-- 1 ez ez  52K Oct  3  2023 [00mDay 46 Lab - Voice VLANs.pkt[0m
+-rw-rw-r-- 1 ez ez  76K Oct  3  2023 [00mDay 47 Lab - QoS.pkt[0m
+-rw-rw-r-- 1 ez ez  52K Oct  3  2023 [00mDay 49 Lab - Port Security.pkt[0m
+-rw-rw-r-- 1 ez ez  51K Oct  3  2023 [00mDay 50 Lab - DHCP Snooping.pkt[0m
+-rw-rw-r-- 1 ez ez  52K Oct  3  2023 [00mDay 51 Lab - Dynamic ARP Inspection.pkt[0m
+-rw-rw-r-- 1 ez ez  57K Oct  3  2023 [00mDay 52 Lab - STP & HSRP Synchronization.pkt[0m
+-rw-rw-r-- 1 ez ez  53K Oct  3  2023 [00mDay 53 Lab - GRE Tunnels.pkt[0m
+-rw-rw-r-- 1 ez ez  55K Oct  3  2023 [00mDay 58 Lab - Wireless LANs.pkt[0m
