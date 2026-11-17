@@ -1,0 +1,185 @@
+Day 21 COnfigure STP:
+
+1. Use the CLI to check the current STP topology.  What is the current root bridge?
+    What is the STP role/state of each port on each switch?
+
+2. Configure SW1 as the primary root for VLAN1 and the secondary root for VLAN2.
+    Configure SW2 and the primary root for VLAN2 and the secondary root for VLAN1.
+    What is the STP role/state of each port on each switch now?
+
+3. Increase the VLAN1 cost of SW4's F0/2 interface to 100.
+    Does SW4 select a different root port?  Why/why not?
+
+4. Increase the VLAN1 port priority of SW1's F0/1 to 240.
+    Does SW3 select a different root port?  Why/why not?
+
+5. Configure PortFast and BPDU Guard on the F0/3 interfaces of SW3/SW4.
+
+
+
+
+Answers:
+
+
+Answers #1
+1. Use the CLI to check the current STP topology.  What is the current root bridge?
+    What is the STP role/state of each port on each switch?
+        =======> Root bridge is  SW2
+           ====> SW1:  # sh spanning-tree 
+		Fa0/1            Altn BLK 19        
+		Fa0/2            Desg FWD 19 
+		Fa0/3            Root FWD 19   - Connected to Root bridge (SW1)
+           ====> SW2: # Sh spanning-tree
+		Fa0/1            Desg FWD 
+		Fa0/2            Desg FWD 
+		Fa0/3            Desg FWD 
+	Root Bridge all ports are Desgnated ports and Forwarding
+           ====> SW3:
+		Fa0/1            Desg FWD 
+		Fa0/2            Root FWD              Root  - Connected to Root bridge (SW1)
+		Fa0/3            Desg FWD             Access port   - Connected to PC1		
+           ====> SW4:
+		Fa0/1            Root FWD 19        -  Connected to Root bridge (SW1)
+		Fa0/2            Altn BLK 19   
+		Fa0/3            FWD 19   	            -  Connected to PC2    
+
+
+
+
+Answer #2
+2. Configure SW1 as the primary root for VLAN1 and the secondary root for VLAN2.
+    Configure SW2 and the primary root for VLAN2 and the secondary root for VLAN1.
+    What is the STP role/state of each port on each switch now?	
+	SW1
+		# SW1(config)#spanning-tree vlan 1 root primary
+		# SW1(config)#spanning-tree vlan 2 root secondary  
+	SW2
+		# SW2(config)#spanning-tree vlan 2 root primary
+		# SW2(config)#spanning-tree vlan 1 root secondary
+	
+Port State:
+	# SW1(config)#do sh spanning-tree 
+	# SW2(config)#do sh spanning-tree   ====>>>> show the port state for vlan 1 and vlan 2 separatly
+
+		SW2(config)#do sh spanning-tree 
+			For VLAN0001 
+			 Root ID    Priority    24577
+                        		 Bridge ID  Priority    28673  (priority 28672 sys-id-ext 1)
+ 
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Desg FWD 19        128.1    P2p
+Fa0/2            Desg FWD 19        128.2    P2p
+Fa0/3            Root FWD 19        128.3    P2p
+
+VLAN0002
+  Spanning tree enabled protocol ieee
+  Root ID    Priority    24578
+             Address     0001.4301.4B81
+             This bridge is the root
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+
+  Bridge ID  Priority    24578  (priority 24576 sys-id-ext 2)
+             Address     0001.4301.4B81
+             Hello Time  2 sec  Max Age 20 sec  Forward Delay 15 sec
+             Aging Time  20
+
+Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Desg FWD 19        128.1    P2p
+Fa0/2            Desg FWD 19        128.2    P2p
+Fa0/3            Desg FWD 19        128.3    P2p
+
+ 
+
+
+ Answer #3
+ 
+3. Increase the VLAN1 cost of SW4's F0/2 interface to 100.
+    Does SW4 select a different root port?  Why/why not?
+	===> initial conf of SW4 
+		SW4(config)#do sh spanning-tree 
+		VLAN0001
+  		Root ID    Priority    24577
+             			Cost        19
+             			Port        2(FastEthernet0/2)
+             			Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+           			  Address     0090.0C03.2D70
+           	Interface        Role Sts Cost      Prio.Nbr Type
+	---------------- ---- --- --------- -------- --------------------------------
+	Fa0/1            Altn BLK 19        128.1    P2p
+	Fa0/2            Root FWD 19        128.2    P2p
+	
+	=====> Increase the VLAN1 cost of SW4's F0/2 interface to 100.
+		SW4(config-if)#spanning-tree vlan 1 cost 100
+
+	======> Check change
+		# do sh spanning-tree vlan 1 
+		=====>>>>  doesn't change
+		since it increase it's cost more and it was not root prort, no change 
+		In other words, if you increase cost to the interface which was non root 
+		it becomes illigible to be selected as root port.
+ 
+	
+Answer #4
+ 
+ 4. Increase the VLAN1 port priority of SW1's F0/1 to 240.
+    Does SW3 select a different root port?  Why/why not?
+	=====> No
+	======> Resason: change in SW1 interface doesn't affectt the selection of root port on SW3 
+### SW3 initial state:  ###
+     =======>  initial root port is Fa0/1  for vlan 1 
+        
+	SW3#sh spanning-tree vlan 1
+	VLAN0001
+  		 Cost        19
+  	                    Port        1(FastEthernet0/1)
+	  Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             	Interface        Role Sts Cost      Prio.Nbr Type
+	--------------- ---- --- --------- -------- --------------------------------
+	Fa0/1            Root FWD 19        128.1    P2p
+	Fa0/2            Altn BLK 19        128.2    P2p
+	Fa0/3            Desg FWD 19        128.3    P2p
+
+### Increase the VLAN1 port priority of SW1's F0/1 to 240  ###
+	SW1(config-if)#spanning-tree vlan 1 cost 240 
+	SW1#sh spanning-tree vlan 1
+		VLAN0001
+		Fa0/3            Desg FWD 19        128.3    P2p
+		Fa0/1            Desg FWD 240       128.1    P2p
+		Fa0/2            Desg FWD 19        128.2    P2p
+
+### check status of SW3 after change in SW1  again ###
+	======>>>>>   still Fa0/1  is Root port 
+SW3#sh spanning-tree vlan 1
+VLAN0001
+             Cost        19
+             Port        1(FastEthernet0/1)
+               Bridge ID  Priority    32769  (priority 32768 sys-id-ext 1)
+             Address     0040.0B50.AA56
+  Interface        Role Sts Cost      Prio.Nbr Type
+---------------- ---- --- --------- -------- --------------------------------
+Fa0/1            Root FWD 19        128.1    P2p
+Fa0/2            Altn BLK 19        128.2    P2p
+Fa0/3            Desg FWD 19        128.3    P2p
+
+ 
+
+
+  Answer #5
+ 5. Configure PortFast and BPDrfaces of SW3/SW4.
+ 	There are 2 ways to configure at the interface level or global mode
+	=====> SW3 will be configured per interface (interface or interface range cmd)
+	=====> SW4 will configured on global mode
+
+
+=====> SW3 will be configured per interface (interface or interface range cmd)
+	SW3(config)#int f0/3
+	SW3(config-if)#switchport mode access
+	SW3(config-if)#spanning-tree portfast 
+	SW3(config-if)#spanning-tree bpduguard enable
+
+=====> SW4 will configured on global mode
+	SW4(config)#spanning-tree portfast default
+	SW4(config)#spanning-tree portfast bpduguard default 
+	
